@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails'
-gem 'bootstrap-sass'
 gem 'pry'
-#gem 'newrelic_rpm'
+gem 'jquery-rails'
+gem 'turbolinks'
 
 group :development, :test do
   gem 'sqlite3'
@@ -22,13 +22,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
-
-group :test do
-  gem 'capybara'
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
-end
 
 group :production do
   gem 'pg'
