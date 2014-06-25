@@ -16,3 +16,4 @@
 //= require_tree .
 //= require bootstrap.min
 //= require d3
+//= require flashobject

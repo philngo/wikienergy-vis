@@ -1,7 +1,31 @@
-<div class="container">
-<h1>Wikienergy - Energy Disaggregation</h1>
-<h2>A <b>Data Science for Social Good</b> 2014 Project</h2>
-<p><%= link_to "DSSG home", "http://dssg.io"%></p>
-<p><%= link_to "Github repo", "http://github.com/dssg/wikienergy"%></p>
+<% content_for(:head) do %>
+<style type="text/css">
 
+#flashcontent {
+  height: 100%;
+}
+
+</style>
+<% end %>
+
+<div class="container">
+  <h1>Wikienergy - Energy Disaggregation</h1>
+  <h2>A <b>Data Science for Social Good</b> 2014 Project</h2>
+  <p><%= link_to "DSSG home", "http://dssg.io"%></p>
+  <p><%= link_to "Github repo", "http://github.com/dssg/wikienergy"%></p>
+
+  <div id="flashcontent">
+    Flash plugin or Javascript are turned off.
+    Activate both  and reload to view the mindmap
+  </div>
+  <script type="text/javascript">
+var fo = new FlashObject("<%= asset_path('visorFreemind.swf') %>", "visorFreeMind", "100%", "100%", 8, "#9999ff");
+fo.addParam("quality", "high");
+fo.addParam("bgcolor", "#ffffff");
+fo.addParam("allowScriptAccess", "true");
+fo.addVariable("openUrl", "_blank");
+fo.addVariable("initLoadFile", "<%= asset_path('map.mm')%>");
+fo.addVariable("startCollapsedToLevel","5");
+fo.write("flashcontent");
+  </script>
 </div>
