@@ -1,6 +1,12 @@
 WikienergyVis::Application.routes.draw do
 
-  root 'static_pages#home'
+  root to: 'static_pages#home'
+
+  match '/appliances', to: 'static_pages#appliances', via: 'get'
+  match '/hmm', to: 'static_pages#hmm', via: 'get'
+  match '/info', to: 'static_pages#info', via: 'get'
+  match '/nn', to: 'static_pages#nn', via: 'get'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
