@@ -5,6 +5,7 @@ gem 'rails'
 gem 'pry'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'd3-rails'
 
 group :development, :test do
   gem 'sqlite3'
