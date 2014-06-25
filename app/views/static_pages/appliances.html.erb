@@ -23,13 +23,14 @@ button {
 
 </style>
 <% end %>
-
+<div class="container">
+<h2>Top 6 appliances for home 5949</h2>
 <div class="chart">
 </div>
 
 <script>
 
-chart("test_data.csv", "blue");
+chart("<%= asset_path 'house_5949_2013.csv' %>", "blue");
 
 var datearray = [];
 var colorrange = [];
@@ -50,8 +51,8 @@ function chart(csv_path, color) {
 
   var format = d3.time.format("%m/%d/%y");
 
-  var margin = {top: 20, right: 40, bottom: 30, left: 30};
-  var width = document.body.clientWidth - 300 - margin.left - margin.right;
+  var margin = {top: 40, right: 50, bottom: 30, left: 50};
+  var width = 1000 - margin.left - margin.right;
   var height = 400 - margin.top - margin.bottom;
 
   var tooltip = d3.select("body")
@@ -200,3 +201,4 @@ function chart(csv_path, color) {
   });
 }
 </script>
+</div>
