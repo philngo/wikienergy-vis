@@ -75,7 +75,7 @@ function chart(csv_path, color) {
   var xAxis = d3.svg.axis()
   .scale(x)
   .orient("bottom")
-  .ticks(d3.time.weeks);
+  .ticks(d3.time.months);
 
   var yAxis = d3.svg.axis()
   .scale(y);
@@ -109,7 +109,6 @@ function chart(csv_path, color) {
       d.date = format.parse(d.date);
       d.value = +d.value;
     });
-
     var layers = stack(nest.entries(data));
 
     x.domain(d3.extent(data, function(d) { return d.date; }));
