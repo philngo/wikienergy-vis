@@ -6,6 +6,7 @@ gem 'pry'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'd3-rails'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'sqlite3'
