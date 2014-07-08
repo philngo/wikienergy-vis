@@ -4,6 +4,7 @@ WikienergyVis::Application.routes.draw do
 
   match '/appliances', to: 'static_pages#appliances', via: 'get'
   match '/info', to: 'static_pages#info', via: 'get'
+  match '/donut', to: 'static_pages#donut', via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

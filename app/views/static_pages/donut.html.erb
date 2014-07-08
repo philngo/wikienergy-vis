@@ -1,0 +1,88 @@
+<div class="container">
+<h1>Energy Usage totals for June 2014</h1>
+<h2 id="aside_h">All appliances</h2>
+<div class="chart">
+</div>
+<script>
+
+//total monthly energy consumption
+var dataset = {
+    kwh: [5324, 2847, 1969, 2234],
+    appliances:['HVAC', 'Refrigerator', 'Washing Machine', 'Other'],
+    information:[
+    'HVAC usage',
+    'Refrigerator usage',
+    'Washing Machine usage',
+    'Other appliances']
+};
+
+//where our colors are stored
+var colors = ["#3498db", "#e74c3c", "#16a085","#F2748B"]
+
+var width = 500,
+    height = 500,
+    radius = Math.min(width, height) /2;
+
+//create pie
+var pie = d3.layout.pie()
+    .sort(null);
+
+//create arc
+var arc = d3.svg.arc()
+    .innerRadius(radius - 100)
+    .outerRadius(radius - 60);
+
+//create visualization svg container
+var svg = d3.select(".chart").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .style("stroke","white")
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+//text svg
+var text = svg.selectAll("text")
+    .data(dataset.appliances)
+    .enter()
+    .append("text");
+
+//image svg
+var img = svg.append("svg:image")
+    .attr("width", 180)
+    .attr("height", 180)
+    .attr("transform", "translate(-90,-90)")
+    .attr("xlink:href", "/assets/all_appliance_icons.svg");
+
+//description svg
+var aside_h = d3.select("#aside_h");
+var aside_p = d3.select("#aside_p");
+var path = svg.selectAll("path")
+    .data(pie(dataset.kwh))
+    .enter().append("path")
+    .attr("fill", function(d, i) { return (colors[i]); })
+    .attr("d", arc)
+    .on('mouseover', function(d, i){
+        d3.select(this)
+        .style({opacity:'0.8'})
+        aside_h
+            .text(dataset.appliances[i])
+        aside_p
+            .text(dataset.information[i])
+        img.attr("xlink:href", "/assets/img_" + i + ".svg")
+            .attr("width", 180)
+            .attr("height", 180)
+            .attr("transform", "translate(-90,-90)")
+    })
+    .on('mouseout', function(d){
+        d3.select(this)
+        .style({opacity: '1.0'});
+        img.attr("xlink:href", "/assets/all_appliance_icons.svg");
+        aside_h
+            .text("All appliances");
+    });
+
+
+
+
+</script>
+</div>

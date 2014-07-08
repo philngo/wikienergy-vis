@@ -13,6 +13,9 @@ class StaticPagesController < ApplicationController
   def home
   end
 
+  def donut
+  end
+
   def info
   end
 
