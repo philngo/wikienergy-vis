@@ -17,3 +17,4 @@
 //= require bootstrap.min
 //= require d3
 //= require flashobject
+//= require app_assets

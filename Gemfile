@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'd3-rails'
 gem 'rails_12factor'
+gem 'js_assets'
 
 group :development, :test do
   gem 'sqlite3'
